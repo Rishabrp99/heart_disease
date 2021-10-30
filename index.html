@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+<style>
+    body , html{
+         height: 100%;
+        
+        
+    }
+    .bg {
+  /* The image used */
+        background-image: url("bg.jpg");
+  /* Full height */
+        height: 100%;
+
+  /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+}
+</style>
+</head>
+
+<body>
+ <div class="bg">
+	<h1>Heart Diseases Analysis</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="number" name="age" placeholder="age in years" required="required" />
+        <input type="number" name="sex" placeholder="(1 = male; 0 = female)" required="required" />
+		<input type="d" name="cp" placeholder="enter the correct option" required="required" />
+        <input type="text" name="trestbps" placeholder="" required="required" />
+        <input type="text" name="chol" placeholder="" required="required" />
+        <input type="text" name="fbs" placeholder="" required="required" />
+        <input type="text" name="restecg" placeholder="" required="required" />
+        <input type="text" name="thalach" placeholder="" required="required" />
+        <input type="text" name="exang" placeholder="" required="required" />
+        <input type="text" name="oldpeak" placeholder="" required="required" />
+        <input type="text" name="slope" placeholder="" required="required" />
+        <input type="text" name="ca" placeholder="" required="required" />
+        <input type="text" name="thal" placeholder="" required="required" />
+        
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+
+ </div>
+
+
+</body>
+</html>
